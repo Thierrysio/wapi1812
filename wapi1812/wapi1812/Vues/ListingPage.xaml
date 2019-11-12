@@ -1,0 +1,67 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:controls="clr-namespace:ImageCircle.Forms.Plugin.Abstractions;assembly=ImageCircle.Forms.Plugin"
+             mc:Ignorable="d"
+             x:Class="wapi1812.Vues.ListingPage">
+    <ContentPage.Content>
+        <StackLayout>
+            <Frame HorizontalOptions="Center" VerticalOptions="Center" Margin="0,50,0,0">
+                <controls:CircleImage Source="https://blogs.worldbank.org/sites/default/files/voices/id4d_0.jpg" Aspect="AspectFill">
+                    <controls:CircleImage.WidthRequest>
+                        <OnPlatform x:TypeArguments="x:Double">
+                            <On Platform="Android, iOS">150</On>
+                        </OnPlatform>
+                    </controls:CircleImage.WidthRequest>
+                    <controls:CircleImage.HeightRequest>
+                        <OnPlatform x:TypeArguments="x:Double">
+                            <On Platform="Android, iOS">150</On>
+                        </OnPlatform>
+                    </controls:CircleImage.HeightRequest>
+                </controls:CircleImage>
+            </Frame>
+            <BoxView WidthRequest="1" BackgroundColor="#13153F" HeightRequest="5" Margin="0,0,0,15" />
+
+
+            <StackLayout>
+                <CollectionView ItemsSource="{Binding MaListeclients}" SelectedItem="{Binding SelectedClient}" SelectionMode="Single" SelectionChangedCommand ="{Binding cvcommand}" VerticalOptions="Fill">
+                    <CollectionView.ItemsLayout>
+                        <GridItemsLayout Orientation="Vertical"
+                        Span="1" />
+                    </CollectionView.ItemsLayout>
+                    <CollectionView.ItemTemplate>
+                        <DataTemplate>
+                            <Grid Padding="10">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="35" />
+                                    <RowDefinition Height="35" />
+                                </Grid.RowDefinitions>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="70" />
+                                    <ColumnDefinition Width="140" />
+                                </Grid.ColumnDefinitions>
+                                <Image Grid.RowSpan="2"
+                       Source="https://static.latribune.fr/full_width/777378/peter-gyongyosi-balabit-cybersecurite-intelligence-artificielle.jpg"
+                       Aspect="AspectFill"
+                       HeightRequest="60"
+                       WidthRequest="60" />
+                                <Label Grid.Column="1"
+                       Text="{Binding Nom}"
+                       FontAttributes="Bold"
+                       LineBreakMode="TailTruncation" />
+                                <Label Grid.Row="1"
+                       Grid.Column="1"
+                       Text="{Binding Ville}"
+                       LineBreakMode="TailTruncation"
+                       FontAttributes="Italic"
+                       VerticalOptions="End" />
+                            </Grid>
+                        </DataTemplate>
+                    </CollectionView.ItemTemplate>
+                </CollectionView>
+            </StackLayout>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
