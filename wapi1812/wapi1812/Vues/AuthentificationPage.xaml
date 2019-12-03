@@ -11,7 +11,7 @@
 
             <StackLayout>
 
-<Frame HorizontalOptions="Center" VerticalOptions="Center" Margin="0,50,0,0">
+                <Frame HorizontalOptions="Center" VerticalOptions="Center" Margin="0,50,0,0">
                     <controls:CircleImage Source="https://blogs.worldbank.org/sites/default/files/voices/id4d_0.jpg" Aspect="AspectFill">
                         <controls:CircleImage.WidthRequest>
                             <OnPlatform x:TypeArguments="x:Double">
@@ -29,7 +29,7 @@
                     </controls:CircleImage>
                 </Frame>
 
-               
+
 
                 <BoxView WidthRequest="1" BackgroundColor="#13153F" HeightRequest="5" Margin="0,0,0,15" />
 
@@ -45,25 +45,31 @@
                 <Grid>
                     <Grid.RowDefinitions>
                         <RowDefinition Height="*" />
-                       
+
                     </Grid.RowDefinitions>
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="*" />
                         <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="*" />
                     </Grid.ColumnDefinitions>
-                   
-                     <Button Text="IDENTIFIEZ MOI"
+
+                    <Button Text="IDENTIFICATION"
+              FontSize="14"
+             BackgroundColor="Teal" Command="{Binding CommandeButtonRegistration}" Padding="0" Margin="50,50,50,0" CornerRadius="15"
+             Grid.Row="0" Grid.Column="0" />
+
+                    <Button Text="CONNEXION"
               FontSize="14"
              BackgroundColor="Teal" Command="{Binding CommandeButtonLogIn}" Padding="0" Margin="50,50,50,0" CornerRadius="15"
-             Grid.Row="0" Grid.Column="0" />
+             Grid.Row="0" Grid.Column="1" />
 
                     <Button Text="LISTING"
               FontSize="14"
              BackgroundColor="Teal" Command="{Binding CommandeButtonListing}" Padding="0" Margin="50,50,50,0" CornerRadius="15"
-             Grid.Row="0" Grid.Column="1" />
+             Grid.Row="0" Grid.Column="2" />
                 </Grid>
 
-               
+
 
                 <Frame HorizontalOptions="Center" VerticalOptions="Center" Margin="0,20,0,0">
                     <controls:CircleImage Source="{Binding ImgAuth}" Aspect="AspectFill">

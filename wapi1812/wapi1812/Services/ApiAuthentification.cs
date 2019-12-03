@@ -15,14 +15,12 @@ namespace wapi1812.Services
         #endregion
         #region Methodes
         public async Task<bool> GetAuthAsync(string userName, string password)
-        {
-           
+        {        
             User modelData = new User(userName, password);
             var jsonstring = JsonConvert.SerializeObject(modelData);
             try
             {
                 var client = new HttpClient();
-
                 var jsonContent = new StringContent(jsonstring, Encoding.UTF8, "application/json");
                 var response = await client.PostAsync(Constantes.BaseApiAddress + "api/login_check", jsonContent);
                 var content = await response.Content.ReadAsStringAsync();
@@ -34,8 +32,6 @@ namespace wapi1812.Services
             {
                 return false;
             }
-
-
         }
         public async void StockerMotDePasse(string letoken)
         {

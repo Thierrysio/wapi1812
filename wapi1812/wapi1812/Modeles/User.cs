@@ -9,11 +9,8 @@ namespace wapi1812.Modeles
     {
         #region Attributs
         public static ArrayList CollClasseUser = new ArrayList();
-
         private string _identifant;
         private string _motDePasse;
-
-
         #endregion
         #region Constructeurs
         public User(string identifant, string motDePasse)
@@ -23,7 +20,6 @@ namespace wapi1812.Modeles
 
             User.CollClasseUser.Add(this);
         }
-
         #endregion
         #region Getters/Setters
         public string username { get => _identifant; set => _identifant = value; }

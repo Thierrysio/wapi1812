@@ -67,7 +67,7 @@ namespace wapi1812.VuesModeles
         #region methodes
         public void ActionPage()
         {
-            int x = 5;
+            
         }
         public void ActionItemSelected()
         {
