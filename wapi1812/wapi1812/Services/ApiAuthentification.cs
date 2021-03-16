@@ -24,9 +24,13 @@ namespace wapi1812.Services
                 var jsonContent = new StringContent(jsonstring, Encoding.UTF8, "application/json");
                 var response = await client.PostAsync(Constantes.BaseApiAddress + "api/login_check", jsonContent);
                 var content = await response.Content.ReadAsStringAsync();
-                Tokens token = JsonConvert.DeserializeObject<Tokens>(content);
-                this.StockerMotDePasse(token.Token);
-                return true;
+                if (content.Contains("token"))
+                {
+                    Tokens token = JsonConvert.DeserializeObject<Tokens>(content);
+                    this.StockerMotDePasse(token.Token);
+                    return true;
+                }
+                else { return false; }
             }
             catch (Exception ex)
             {

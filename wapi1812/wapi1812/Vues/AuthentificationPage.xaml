@@ -52,20 +52,20 @@
                         <ColumnDefinition Width="*" />
                         <ColumnDefinition Width="*" />
                     </Grid.ColumnDefinitions>
-
                     <Button Text="IDENTIFICATION"
               FontSize="14"
-             BackgroundColor="Teal" Command="{Binding CommandeButtonRegistration}" Padding="0" Margin="50,50,50,0" CornerRadius="15"
+             BackgroundColor="Teal" 
+             Command="{Binding CommandeButtonRegistration}" Padding="0" Margin="0,50,0,0" CornerRadius="15"
              Grid.Row="0" Grid.Column="0" />
 
                     <Button Text="CONNEXION"
               FontSize="14"
-             BackgroundColor="Teal" Command="{Binding CommandeButtonLogIn}" Padding="0" Margin="50,50,50,0" CornerRadius="15"
+             BackgroundColor="Teal" Command="{Binding CommandeButtonLogIn}" Padding="0" Margin="0,50,0,0" CornerRadius="15"
              Grid.Row="0" Grid.Column="1" />
 
                     <Button Text="LISTING"
               FontSize="14"
-             BackgroundColor="Teal" Command="{Binding CommandeButtonListing}" Padding="0" Margin="50,50,50,0" CornerRadius="15"
+             BackgroundColor="Teal" Command="{Binding CommandeButtonListing}" Padding="0" Margin="0,50,0,0" CornerRadius="15"
              Grid.Row="0" Grid.Column="2" />
                 </Grid>
 

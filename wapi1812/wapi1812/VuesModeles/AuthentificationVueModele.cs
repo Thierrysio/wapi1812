@@ -108,7 +108,11 @@ namespace wapi1812.VuesModeles
                 {
                     ImgAuth = "https://www.aslbadminton.fr/wp-content/uploads/2016/11/Ok-257x300.png";
                     auth = true;
-                     
+                    Device.BeginInvokeOnMainThread(() =>
+                    {
+                        Application.Current.MainPage = new NavigationPage(new ListingPage());
+                    });
+
                 }
                 else 
                 {

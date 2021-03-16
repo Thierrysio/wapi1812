@@ -16,7 +16,7 @@ namespace wapi1812.VuesModeles
     {
         #region attributs
         private readonly ApiClient _apiServices = new ApiClient();
-        private ObservableCollection<Clients> maListeclients;
+        private ObservableCollection<Banque> maListebanque;
 
 
         #endregion
@@ -26,7 +26,7 @@ namespace wapi1812.VuesModeles
             
             Task.Run(async () =>
             {
-                MaListeclients = await _apiServices.GetClientAsync();
+                MaListeBanque = await _apiServices.GetBanqueAsync();
 
             });
         }
@@ -49,18 +49,18 @@ namespace wapi1812.VuesModeles
             }
         }
        
-        public ObservableCollection<Clients> MaListeclients
+        public ObservableCollection<Banque> MaListeBanque
         {
             get
             {
 
-                return maListeclients;
+                return maListebanque;
             }
 
             set
             {
-                maListeclients = value;
-                OnPropertyChanged(nameof(MaListeclients));
+                maListebanque = value;
+                OnPropertyChanged(nameof(MaListeBanque));
             }
         }
         #endregion

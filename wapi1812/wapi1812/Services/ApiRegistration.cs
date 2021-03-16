@@ -19,7 +19,7 @@ namespace wapi1812.Services
             {
                 var client = new HttpClient();
                 var jsonContent = new StringContent(jsonstring, Encoding.UTF8, "application/json");
-                var response = await client.PostAsync(Constantes.BaseApiAddress + "Api/register", jsonContent);
+                var response = await client.PostAsync(Constantes.BaseApiAddress + "register", jsonContent);
                 var content = await response.Content.ReadAsStringAsync();
                 return true;
             }

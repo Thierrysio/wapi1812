@@ -26,7 +26,7 @@
 
 
             <StackLayout>
-                <CollectionView ItemsSource="{Binding MaListeclients}" SelectedItem="{Binding SelectedClient}" SelectionMode="Single" SelectionChangedCommand ="{Binding cvcommand}" VerticalOptions="Fill">
+                <CollectionView ItemsSource="{Binding MaListeBanque}" SelectedItem="{Binding SelectedClient}" SelectionMode="Single" SelectionChangedCommand ="{Binding cvcommand}" VerticalOptions="Fill">
                     <CollectionView.ItemsLayout>
                         <GridItemsLayout Orientation="Vertical"
                         Span="1" />
@@ -48,12 +48,12 @@
                        HeightRequest="60"
                        WidthRequest="60" />
                                 <Label Grid.Column="1"
-                       Text="{Binding Nom}"
+                       Text="{Binding LeMontant}"
                        FontAttributes="Bold"
                        LineBreakMode="TailTruncation" />
                                 <Label Grid.Row="1"
                        Grid.Column="1"
-                       Text="{Binding Ville}"
+                       Text="{Binding Lettrage}"
                        LineBreakMode="TailTruncation"
                        FontAttributes="Italic"
                        VerticalOptions="End" />

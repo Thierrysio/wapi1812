@@ -2,8 +2,10 @@
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.IO;
 using System.Net.Http;
 using System.Net.Http.Headers;
+using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 using wapi1812.Modeles;
@@ -14,17 +16,26 @@ namespace wapi1812.Services
     class ApiClient
     {
         #region Methodes
-        public async Task<ObservableCollection<Clients>> GetClientAsync()
+        public async Task<ObservableCollection<Banque>> GetBanqueAsync()
         {
             string letoken;
             try
             {
-                letoken = await SecureStorage.GetAsync("token");
+                /*letoken = await SecureStorage.GetAsync("token");
                 var clientHttp = new HttpClient();
-                clientHttp.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", letoken);
-                var json = await clientHttp.GetStringAsync(Constantes.BaseApiAddress + "api/clients");
+                clientHttp.DefaultRequestHeaders.Authorization = 
+                    new AuthenticationHeaderValue("Bearer", letoken);
+                var json = await clientHttp.GetStringAsync(Constantes.BaseApiAddress + "api/banque");
 
-                JsonConvert.DeserializeObject<List<Clients>>(json);
+                */
+                var assembly = IntrospectionExtensions.GetTypeInfo(typeof(ApiClient)).Assembly;
+                Stream stream = assembly.GetManifestResourceStream("wapi1812.json.banque");
+                string text = "";
+                using (var reader = new System.IO.StreamReader(stream))
+                {
+                    text = reader.ReadToEnd();
+                }
+                JsonConvert.DeserializeObject<List<Banque>>(text);
 
 
             }
@@ -33,7 +44,7 @@ namespace wapi1812.Services
                 // Possible that device doesn't support secure storage on device.
             }
 
-            return Clients.Recup();
+            return Banque.Recup();
 
         }
 
